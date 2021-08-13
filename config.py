@@ -5,6 +5,7 @@ from albumentations.pytorch import ToTensorV2
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+
 # learning rate is a hyperparameter that controls how much to change the model in response to the estimated error each time the model weights are updated. 
 # Choosing the learning rate is challenging as a value too small may result in a long training process that could get stuck, whereas a value too large may result 
 # in learning a sub-optimal set of weights too fast or an unstable training process.
@@ -20,7 +21,7 @@ BATCH_SIZE = 64
 NUM_EPOCHS = 100
 
 # tells the data loader instance how many sub-processes to use for data loading
-NUM_WORKERS = 2
+NUM_WORKERS = 10
 
 CHECKPOINT_FILE = "b3.pth.tar"
 # not needed, useful if you have nvidia gpu

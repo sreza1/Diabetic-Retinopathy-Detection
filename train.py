@@ -83,7 +83,7 @@ def main():
     val_loader = DataLoader(
         val_ds,
         batch_size=config.BATCH_SIZE,
-        num_workers=2,
+        num_workers=4,
         pin_memory=config.PIN_MEMORY,
         shuffle=False,
     )

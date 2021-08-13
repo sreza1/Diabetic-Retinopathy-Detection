@@ -46,7 +46,7 @@ if __name__ == "__main__":
     )
 
     loader = DataLoader(
-        dataset=dataset, batch_size=32, num_workers=2, shuffle=True, pin_memory=True
+        dataset=dataset, batch_size=32, num_workers=6, shuffle=True, pin_memory=True
     )
 
     for x, label, file in tqdm(loader):
