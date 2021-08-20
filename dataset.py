@@ -27,7 +27,14 @@ class DRDataset(Dataset):
             image_file, label = self.image_files[index], -1
             image_file = image_file.replace(".jpeg", "")
         
-        image = np.array(Image.open(os.path.join(self.images_folder, image_file+".jpeg")))
+        if image_file[0]=="_":
+            image_file=image_file[1:]
+        elif image_file[:2] =="._":
+            image_file=image_file[2:]
+
+
+        path = os.path.join(self.images_folder + "/",  image_file+".jpeg")
+        image = np.array(Image.open(path))
 
         if self.transform:
             image= self.transform(image=image)["image"]
@@ -40,8 +47,8 @@ if __name__ == "__main__":
     Test if everything works ok
     """
     dataset = DRDataset(
-        images_folder="data/resized_data_650",
-        path_to_csv="data/trainLabels.csv",
+        images_folder="/data/resized_data_650",
+        path_to_csv="/data/trainLabels.csv",
         transform = config.val_transforms
     )
 

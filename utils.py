@@ -59,7 +59,7 @@ def save_checkpoint(state, filename="my_checkpoint.pth.tar"):
 def load_checkpoint(checkpoint, model, optimizer, lr):
     print("=> Loading checkpint")
     model.load_state_dict(checkpoint["state_dict"])
-    optimizer.load_state_dict(checkpoint["otimizer"])
+    optimizer.load_state_dict(checkpoint["optimizer"])
 
     #if we don't do this then it will just have learning rate of old checkpoint
     # and it will lead to many hours of debugging 
