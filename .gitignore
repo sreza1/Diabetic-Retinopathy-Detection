@@ -135,3 +135,4 @@ data/
 .floydexpt
 .floydignore
 floyd.yml
+b3.pth.tar
