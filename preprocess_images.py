@@ -69,5 +69,7 @@ def fast_image_resize(input_path_folder, output_path_folder, output_size=None):
 
 
 if __name__ == "__main__":
-    fast_image_resize("../downloaded/train/", "data/train/images_resized_150/", output_size=(150, 150))
-    fast_image_resize("../downloaded/train/", "data/test/images_resized_150/", output_size=(150, 150))
+    fast_image_resize("../downloaded/train/", "data/train/images_resized_1000/", output_size=1000)
+    fast_image_resize("../downloaded/train/", "data/train/images_resized_150/", output_size=150)
+    fast_image_resize("../downloaded/test/", "data/test/images_resized_1000/", output_size=1000)
+    fast_image_resize("../downloaded/test/", "data/test/images_resized_150/", output_size=150)
