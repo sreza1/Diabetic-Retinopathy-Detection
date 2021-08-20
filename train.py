@@ -96,29 +96,31 @@ def main():
         model.parameters(), lr=config.LEARNING_RATE, weight_decay=config.WEIGHT_DECAY)
     scaler = torch.cuda.amp.GradScaler()
 
+    make_prediction(model, test_loader)
     import sys
     sys.exit
-    if config.LOAD_MODEL and config.CHECKPOINT_FILE in os.listdir():
-        load_checkpoint(torch.load(config.CHECKPOINT_FILE),
-                        model, optimizer, config.LEARNING_RATE)
 
-    for epoch in range(config.NUM_EPOCHS):
-        train_one_epoch(train_loader, model, optimizer,
-                        loss_fn, scaler, config.DEVICE)
+    # --- sys exit dont seem to work so just commented below out ---
+    # if config.LOAD_MODEL and config.CHECKPOINT_FILE in os.listdir():
+    #     load_checkpoint(torch.load(config.CHECKPOINT_FILE),
+    #                     model, optimizer, config.LEARNING_RATE)
 
-        # get on validation
-        preds, labels = check_accuracy(val_loader, model, config.DEVICE)
-        print(
-            f"QuatraticWeightedKappa (Validation): {cohen_kappa_score(labels, preds, weights='quadratic')}")
+    # for epoch in range(config.NUM_EPOCHS):
+    #     train_one_epoch(train_loader, model, optimizer,
+    #                     loss_fn, scaler, config.DEVICE)
 
-        if config.SAVE_MODEL:
-            checkpoint = {
-                "state_dict": model.state_dict(),
-                "optimizer": optimizer.state_dict()
-            }
-            save_checkpoint(checkpoint, filename=config.CHECKPOINT_FILE)
+    #     # get on validation
+    #     preds, labels = check_accuracy(val_loader, model, config.DEVICE)
+    #     print(
+    #         f"QuatraticWeightedKappa (Validation): {cohen_kappa_score(labels, preds, weights='quadratic')}")
 
-    make_prediction(model, test_loader)
+    #     if config.SAVE_MODEL:
+    #         checkpoint = {
+    #             "state_dict": model.state_dict(),
+    #             "optimizer": optimizer.state_dict()
+    #         }
+    #         save_checkpoint(checkpoint, filename=config.CHECKPOINT_FILE)
+
 
 
 
