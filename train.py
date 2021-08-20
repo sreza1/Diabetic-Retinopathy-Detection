@@ -96,7 +96,6 @@ def main():
         model.parameters(), lr=config.LEARNING_RATE, weight_decay=config.WEIGHT_DECAY)
     scaler = torch.cuda.amp.GradScaler()
 
-    make_prediction(model, test_loader)
     import sys
     sys.exit
     if config.LOAD_MODEL and config.CHECKPOINT_FILE in os.listdir():
@@ -119,7 +118,8 @@ def main():
             }
             save_checkpoint(checkpoint, filename=config.CHECKPOINT_FILE)
 
-    
+    make_prediction(model, test_loader)
+
 
 
 if __name__ == "__main__":

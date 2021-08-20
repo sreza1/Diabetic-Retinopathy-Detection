@@ -27,10 +27,10 @@ class DRDataset(Dataset):
             image_file, label = self.image_files[index], -1
             image_file = image_file.replace(".jpeg", "")
         
-        if image_file[0]=="_":
-            image_file=image_file[1:]
-        elif image_file[:2] =="._":
-            image_file=image_file[2:]
+        # if image_file[0]=="_":
+        #     image_file=image_file[1:]
+        # elif image_file[:2] =="._":
+        #     image_file=image_file[2:]
 
 
         path = os.path.join(self.images_folder + "/",  image_file+".jpeg")
