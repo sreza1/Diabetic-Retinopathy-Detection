@@ -2,7 +2,7 @@ import os
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-directory = "data/downloaded/train"
+directory = "data/test"
 counter = 0
 for filename in os.listdir(directory):
     counter+=1
@@ -11,5 +11,5 @@ for filename in os.listdir(directory):
     if image_file != os.path.join(directory, '.DS_Store'):
         image = Image.open(image_file)
         new_image = image.resize((650, 650))
-        new_image.save('data/resized_data_650/'+filename)
+        new_image.save('data/images_resized_650/test/'+filename)
 

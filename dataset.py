@@ -47,7 +47,7 @@ if __name__ == "__main__":
     Test if everything works ok
     """
     dataset = DRDataset(
-        images_folder="/data/resized_data_650",
+        images_folder="/data/images_resized_650",
         path_to_csv="/data/trainLabels.csv",
         transform = config.val_transforms
     )

@@ -58,7 +58,8 @@ def fast_image_resize(input_path_folder, output_path_folder, output_size=None):
 
     if not os.path.exists(output_path_folder):
         os.makedirs(output_path_folder)
-
+    
+    
     jobs = [
         (file, input_path_folder, output_path_folder, output_size)
         for file in os.listdir(input_path_folder)
@@ -69,7 +70,8 @@ def fast_image_resize(input_path_folder, output_path_folder, output_size=None):
 
 
 if __name__ == "__main__":
-    fast_image_resize("../downloaded/train/", "data/train/images_resized_150/", output_size=(150, 150))
-    # fast_image_resize("../downloaded/train/", "data/train/images_resized_1000/", output_size=1000)
-    # # fast_image_resize("../downloaded/test/", "data/test/images_resized_1000/", output_size=1000)
-    # fast_image_resize("../downloaded/test/", "data/test/images_resized_150/", output_size=(150, 150))
+    #reason we use 150 because fast to load, later we might want to use larger image resolution
+    # fast_image_resize("data/train/", "data/preprocessed/images_resized_150/train/", output_size=(150, 150))
+    # fast_image_resize("data/test/", "data/preprocessed/images_resized_150/test/", output_size=(150, 150))
+    # fast_image_resize("data/train/", "data/preprocessed/images_resized_1000/train/", output_size=(1000, 1000))
+    # fast_image_resize("data/test/", "data/preprocessed/images_resized_1000/test/", output_size=(1000, 1000))
